@@ -4,10 +4,9 @@ spring:
 
 algo-config:
   basePath: "/Users/kmbl327929/IdeaProjects/personal/Data/atr/"
-  spread: 0.00012
   thresholdProfit: 5
   lastDays: 90
-  token: GBPUSD
+  token: EURJPY
   hourlySuffix: "hour_day.json"
   dailySuffix: "one_day.json"
   resultSuffix: "result.json"

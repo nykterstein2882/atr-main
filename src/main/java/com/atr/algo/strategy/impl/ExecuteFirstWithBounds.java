@@ -2,7 +2,6 @@ package com.atr.algo.strategy.impl;
 
 import com.atr.algo.strategy.AlgoStrategy;
 import com.atr.models.*;
-import com.kmbl.cbs.atrlatest.models.*;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
