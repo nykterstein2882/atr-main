@@ -1,6 +1,7 @@
-package com.kmbl.cbs.atrlatest.algo.strategy.impl;
+package com.atr.algo.strategy.impl;
 
-import com.kmbl.cbs.atrlatest.algo.strategy.AlgoStrategy;
+import com.atr.algo.strategy.AlgoStrategy;
+import com.atr.models.*;
 import com.kmbl.cbs.atrlatest.models.*;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -9,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.kmbl.cbs.atrlatest.util.Utils.*;
+import static com.atr.util.Utils.*;
 
 @NoArgsConstructor
 public class ExecuteFirstWithBounds implements AlgoStrategy {

@@ -1,4 +1,4 @@
-package com.kmbl.cbs.atrlatest;
+package com.atr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

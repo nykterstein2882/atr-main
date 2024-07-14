@@ -1,4 +1,4 @@
-package com.kmbl.cbs.atrlatest.models;
+package com.atr.models;
 
 public enum TradeStatus {
     PROFIT,

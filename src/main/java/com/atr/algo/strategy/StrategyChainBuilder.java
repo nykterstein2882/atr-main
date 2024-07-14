@@ -1,7 +1,7 @@
-package com.kmbl.cbs.atrlatest.algo.strategy;
+package com.atr.algo.strategy;
 
-import com.kmbl.cbs.atrlatest.models.AlgoConfig;
-import com.kmbl.cbs.atrlatest.models.Result;
+import com.atr.models.AlgoConfig;
+import com.atr.models.Result;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 

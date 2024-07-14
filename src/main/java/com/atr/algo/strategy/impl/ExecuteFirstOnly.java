@@ -1,6 +1,8 @@
-package com.kmbl.cbs.atrlatest.algo.strategy.impl;
+package com.atr.algo.strategy.impl;
 
-import com.kmbl.cbs.atrlatest.algo.strategy.AlgoStrategy;
+import com.atr.algo.strategy.AlgoStrategy;
+import com.atr.models.*;
+import com.atr.util.Utils;
 import com.kmbl.cbs.atrlatest.models.*;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -9,15 +11,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.kmbl.cbs.atrlatest.util.Utils.*;
-
 @NoArgsConstructor
 public class ExecuteFirstOnly implements AlgoStrategy {
     @SneakyThrows
     @Override
     public Result getResult(AlgoConfig algoConfig) {
-        List<CandleStick> dailyCandles = loadDailyCandlesFromJson(algoConfig);
-        List<CandleStick> hourlyCandles = loadHourlyCandlesFromJson(algoConfig);
+        List<CandleStick> dailyCandles = Utils.loadDailyCandlesFromJson(algoConfig);
+        List<CandleStick> hourlyCandles = Utils.loadHourlyCandlesFromJson(algoConfig);
 
         Map<String, CandleStick> dailyMap = getDailyMap(dailyCandles);
         Map<String, List<CandleStick>> hourlyMap = getHourlyMap(hourlyCandles);
@@ -141,7 +141,7 @@ public class ExecuteFirstOnly implements AlgoStrategy {
         for (int i = 0; i < todaysHourlyCandles.size(); i++) {
             if (tradeExecuted) {
                 if(!tradeFinished) {
-                    shortResult.setMaxProfit(Math.max(shortResult.getMaxProfit(), getCurrentShortTradeMaxProfits(entry,
+                    shortResult.setMaxProfit(Math.max(shortResult.getMaxProfit(), Utils.getCurrentShortTradeMaxProfits(entry,
                             stopLoss, todaysHourlyCandles.get(i), algoConfig)));
                     if(todaysHourlyCandles.get(i).getHigh() >= stopLoss) {
                         System.out.println("stoploss hit");
@@ -185,7 +185,7 @@ public class ExecuteFirstOnly implements AlgoStrategy {
         } else if (tradeExecuted) {
             shortResult.setProfit((shortResult.getMaxProfit() >= algoConfig.getThresholdProfit())
                     ? algoConfig.getThresholdProfit()
-                    : Math.min(algoConfig.getThresholdProfit(), getCurrentShortTradeProfits(entry, stopLoss,
+                    : Math.min(algoConfig.getThresholdProfit(), Utils.getCurrentShortTradeProfits(entry, stopLoss,
                         todaysHourlyCandles.get(todaysHourlyCandles.size() - 1), algoConfig))
             );
         }
@@ -221,7 +221,7 @@ public class ExecuteFirstOnly implements AlgoStrategy {
         for (int i = 0; i < todaysHourlyCandles.size(); i++) {
             if (tradeExecuted) {
                 if(!tradeFinished) {
-                    longResult.setMaxProfit(Math.max(longResult.getMaxProfit(), getCurrentLongTradeMaxProfits(entry,
+                    longResult.setMaxProfit(Math.max(longResult.getMaxProfit(), Utils.getCurrentLongTradeMaxProfits(entry,
                             stopLoss, todaysHourlyCandles.get(i), algoConfig)));
                     if(todaysHourlyCandles.get(i).getLow() <= stopLoss) {
                         stopLossHit = true;
@@ -265,7 +265,7 @@ public class ExecuteFirstOnly implements AlgoStrategy {
             longResult.setProfit(
                     (longResult.getMaxProfit() >= algoConfig.getThresholdProfit())
                     ? algoConfig.getThresholdProfit()
-                    : Math.min(algoConfig.getThresholdProfit(), getCurrentLongTradeProfits(entry, stopLoss,
+                    : Math.min(algoConfig.getThresholdProfit(), Utils.getCurrentLongTradeProfits(entry, stopLoss,
                         todaysHourlyCandles.get(todaysHourlyCandles.size() - 1), algoConfig))
             );
         }

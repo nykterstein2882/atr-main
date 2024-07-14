@@ -1,4 +1,4 @@
-package com.kmbl.cbs.atrlatest.models;
+package com.atr.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

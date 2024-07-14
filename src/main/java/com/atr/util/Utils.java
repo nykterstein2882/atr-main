@@ -1,16 +1,16 @@
-package com.kmbl.cbs.atrlatest.util;
+package com.atr.util;
 
+import com.atr.algo.strategy.impl.ExecuteFirstWithBounds;
+import com.atr.models.Result;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.kmbl.cbs.atrlatest.algo.strategy.AlgoStrategy;
-import com.kmbl.cbs.atrlatest.algo.strategy.impl.DayCloseStrategy;
-import com.kmbl.cbs.atrlatest.algo.strategy.impl.ExecuteAnyStrategy;
-import com.kmbl.cbs.atrlatest.algo.strategy.impl.ExecuteFirstOnly;
-import com.kmbl.cbs.atrlatest.algo.strategy.impl.ExecuteFirstWithBounds;
-import com.kmbl.cbs.atrlatest.models.AlgoConfig;
-import com.kmbl.cbs.atrlatest.models.CandleStick;
-import com.kmbl.cbs.atrlatest.models.Result;
+import com.atr.algo.strategy.AlgoStrategy;
+import com.atr.algo.strategy.impl.DayCloseStrategy;
+import com.atr.algo.strategy.impl.ExecuteAnyStrategy;
+import com.atr.algo.strategy.impl.ExecuteFirstOnly;
+import com.atr.models.AlgoConfig;
+import com.atr.models.CandleStick;
 import lombok.experimental.UtilityClass;
 
 import java.io.File;

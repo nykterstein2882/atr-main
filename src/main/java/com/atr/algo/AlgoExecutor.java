@@ -1,14 +1,13 @@
-package com.kmbl.cbs.atrlatest.algo;
+package com.atr.algo;
 
-import com.kmbl.cbs.atrlatest.algo.strategy.StrategyChainBuilder;
-import com.kmbl.cbs.atrlatest.util.Utils;
-import com.kmbl.cbs.atrlatest.models.AlgoConfig;
-import com.kmbl.cbs.atrlatest.models.Result;
+import com.atr.models.Result;
+import com.atr.algo.strategy.StrategyChainBuilder;
+import com.atr.util.Utils;
+import com.atr.models.AlgoConfig;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Configuration
 public class AlgoExecutor {
